@@ -1,17 +1,14 @@
 var http= require('http');
-var fs= require('fs');
-// var path= require('path');   
+var fs= require('fs');   
 var querystring = require('querystring');
 var tf = require('./Controller/taskFunctions.js');
 
 http.createServer(function(req,res){
     console.log(req.url);
     console.log(req.body);
-    // var extname = path.extname(req.url);
-    // console.log("Path: ", extname);
     if(req.url.split("?")[0] == '/t'){
         console.log("im in");
-        fs.readFile('./views/model.html', function (err, data) {
+        fs.readFile('./views/todos.html', function (err, data) {
             if (err) throw err;
             res.writeHead(200, { 'Content-Type': 'text/html' });         
             res.write(data);
